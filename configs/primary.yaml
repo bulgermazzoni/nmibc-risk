@@ -1,0 +1,25 @@
+project: nmibc_multimodal_risk
+seed: 42
+folds: 5
+seeds: [42, 123, 7777, 11, 999]
+precision: fp16
+world_size: 4
+device: cuda
+batch_size: 32
+grad_accum: 1
+learning_rate: 0.00005
+weight_decay: 0.01
+optimizer: adamw
+scheduler: cosine
+warmup_steps: 1000
+max_steps: 40000
+lambda_reconstruction: 0.1
+lambda_conformal: 0.02
+conformal_target: 0.90
+embedding_dim: 64
+hidden_dim: 128
+heads: 4
+dropout: 0.1
+clip_grad_norm: 1.0
+checkpoint_dir: checkpoints
+output_dir: outputs

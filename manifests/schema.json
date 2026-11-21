@@ -1,0 +1,21 @@
+{
+  "required_columns": [
+    "patient_id",
+    "cohort",
+    "split",
+    "recurrence_1y",
+    "progression_1y",
+    "cystoscopy_path",
+    "pathology_path",
+    "molecular_path"
+  ],
+  "optional_columns": [
+    "sex",
+    "age_group",
+    "stage",
+    "grade",
+    "site",
+    "equipment",
+    "ethnicity_proxy"
+  ]
+}

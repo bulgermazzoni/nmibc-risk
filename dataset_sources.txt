@@ -1,0 +1,5 @@
+UROMOL E-MTAB-4321 | ArrayExpress BioStudies | https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-4321 | verified reachable 2026-07-04 | license reported in manuscript CC-BY 4.0
+GSE13507 | NCBI GEO | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13507 | verified reachable 2026-07-04 | public GEO series
+GSE32894 | NCBI GEO | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE32894 | verified reachable 2026-07-04 | public GEO series
+TCGA-BLCA | NCI Genomic Data Commons | https://portal.gdc.cancer.gov/projects/TCGA-BLCA | verified reachable 2026-07-04 | NIH GDC access terms
+Endoscopic Bladder Tissue | Zenodo record 7741476 | https://zenodo.org/record/7741476 | manuscript URL checked 2026-07-04 | license reported in manuscript CC-BY 4.0

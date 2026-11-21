@@ -1,0 +1,60 @@
+# NMIBC Multimodal Risk
+
+This repository contains the study implementation for NMIBC recurrence and progression risk modeling from cystoscopy, histopathology, and cfDNA or transcriptomic molecular inputs. The package includes modality encoders, pair-gated cross-attention fusion, recurrence and progression heads, translation-gap estimation, conformal calibration, cohort accounting, and evaluation utilities for AUROC, AUPRC, calibration, bootstrap intervals, DeLong-style variance approximations, decision curves, and subgroup audits.
+
+## Installation
+
+Python 3.11 is expected.
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .
+```
+
+Conda:
+
+```bash
+conda env create -f environment.yml
+conda activate nmibc-risk
+pip install -e .
+```
+
+Docker:
+
+```bash
+docker build -t nmibc-risk .
+```
+
+## Data
+
+Dataset URLs are listed in `dataset_sources.txt`. Private cohort inputs are expected as de-identified manifests with columns declared in `manifests/schema.json`. Public transcriptomic cohorts should be converted to Parquet or CSV feature tables with one patient per row. Cystoscopy datasets should be represented as frame feature tensors and frame-level metadata. Whole-slide pathology inputs should be precomputed tile embeddings because the released training path expects frozen foundation-model features.
+
+Expected manifest SHA-256 values are stored in `manifests/expected_hashes.txt`. Replace them with study-site hashes after local data export. No private identifiers should be written to manifests.
+
+## Training
+
+Main configuration:
+
+```bash
+python -m nmibc_multimodal_risk.cli train --config configs/primary.yaml
+```
+
+Primary run settings: batch size 32, learning rate 5e-5, 5 folds, seeds 42, 123, 7777, 11, 999, mixed precision fp16, 4 NVIDIA A100 80GB GPUs, about 72 hours wall-clock for the full fold and seed matrix.
+
+## Evaluation
+
+```bash
+python -m nmibc_multimodal_risk.cli evaluate --config configs/primary.yaml --predictions outputs/predictions.csv
+```
+
+Expected primary retrospective internal-external AUROC is 0.891 for one-year recurrence and 0.907 for progression. Expected pooled public external AUROC is 0.851 for one-year recurrence and 0.873 for progression. Expected prospective silent-mode AUROC is 0.857 for recurrence and 0.881 for progression.
+
+## Compute Budget
+
+The study configuration uses PyTorch 2.4, CUDA 12.4, fp16 mixed precision, 4 A100 80GB GPUs, peak batch memory 38GB, and a 72 hour full pipeline. Single-sample inference latency target is below 500 ms on one A100 80GB GPU.
+
+## Checkpoints
+
+Trained weights and conformal calibration sets are available on controlled request during review. Public archived weights can be added to `manifests/checkpoints.json` with SHA-256 values after release.

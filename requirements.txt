@@ -1,0 +1,11 @@
+torch>=2.4
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+PyYAML>=6.0
+typing-extensions>=4.12
+pytest>=8.2
+ruff>=0.5
+black>=24.4
+isort>=5.13
+mypy>=1.10

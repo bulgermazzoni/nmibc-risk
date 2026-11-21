@@ -1,0 +1,15 @@
+Implementation Map
+
+Methods 3.1 | cohort accounting and manifest schema | src/nmibc_multimodal_risk/cohorts.py | CohortTable, split validation, SHA-256 manifest checks.
+Methods 3.2 | modality encoders | src/nmibc_multimodal_risk/encoders.py | Frozen feature adapters and trainable projection heads.
+Algorithm 1 | cross-attention modality masking | src/nmibc_multimodal_risk/bridge.py | Pair gated cross-attention and attribution extraction.
+Figure 4 | model architecture | src/nmibc_multimodal_risk/architecture.py | End-to-end recurrence and progression module.
+Figure 7 | four-loss decomposition | src/nmibc_multimodal_risk/objectives.py | BCE recurrence, BCE progression, reconstruction, conformal surrogate.
+Equation 1 | TGBRD upper bound | src/nmibc_multimodal_risk/tgbrd.py | Axis values, constrained simplex fit, bootstrap intervals.
+Algorithm 2 | TGBRD estimator | src/nmibc_multimodal_risk/tgbrd.py | Retrospective anchor fitting and prospective bound.
+Methods 3.4 | group conformal calibration | src/nmibc_multimodal_risk/conformal.py | Per-group quantiles and coverage reporting.
+Methods 3.5 | metrics and statistics | src/nmibc_multimodal_risk/measures.py | AUROC, AUPRC, Brier, ECE, NRI, IDI, decision curve, bootstrap.
+Tables 1-4 | reported evaluation | src/nmibc_multimodal_risk/evaluation.py | Table-oriented metric bundles.
+Tables 5-8 | reader, safety, subgroup | src/nmibc_multimodal_risk/audits.py | Reader comparison, safety profile, subgroup gaps.
+Tables 12-15 | hparams, compute, transfer, dropout | configs/*.yaml and src/nmibc_multimodal_risk/dropout.py | Experiment variants and missing-modality evaluation.
+Tables 17-22 | harmonisation and TGBRD | src/nmibc_multimodal_risk/harmonise.py and src/nmibc_multimodal_risk/tgbrd.py | ComBat-like standardisation and axis breakdown.

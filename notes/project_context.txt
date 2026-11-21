@@ -1,0 +1,58 @@
+Project Context
+
+project_name       : nmibc_multimodal_risk [HIGH]
+domain             : computational urologic oncology risk stratification for non-muscle-invasive bladder cancer [HIGH]
+framework          : PyTorch 2.4 with CUDA 12.4, torch.nn, HuggingFace integration points [HIGH]
+venue              : npj Digital Medicine style clinical AI article [MEDIUM]
+primary_datasets   : private retrospective, private prospective, UROMOL, GSE13507, GSE32894, CystoDS, EBT, TCGA-BLCA auxiliary, Pan-Cancer-Nuclei-Seg auxiliary [HIGH]
+compute_target     : 4 NVIDIA A100 80GB GPUs, 38GB peak batch memory, 72 hours full training [HIGH]
+hparams_reference  : Methods 3.2, Table 12, Table 13, Figure 7 [HIGH]
+supp_path          : none found as a separate file; supplementary material is embedded in the PDF [HIGH]
+extra_signals      : Algorithm 1 cross-attention masking, Algorithm 2 TGBRD estimator, Equation 1 translation bound, six-stratum conformal calibration, five seeds, five folds
+
+Derived Fields
+
+1. project_name
+Value: nmibc_multimodal_risk
+Location: title and abstract.
+Confidence: HIGH.
+
+2. supp_path
+Value: none as a separate file; embedded supplementary material begins after References.
+Location: PDF pages 26-48.
+Confidence: HIGH.
+
+3. domain
+Value: computational urologic oncology risk stratification for NMIBC recurrence and progression.
+Location: Abstract, Introduction, Methods 3.1.
+Confidence: HIGH.
+
+4. framework
+Value: PyTorch 2.4 with CUDA 12.4, torch.nn modules, HuggingFace integration boundaries for encoders.
+Location: Methods 3.2 and Figure 1.
+Confidence: HIGH.
+
+5. venue
+Value: npj Digital Medicine style manuscript.
+Location: repeated npj Digital Medicine collection framing and reporting references.
+Confidence: MEDIUM.
+
+6. primary_datasets
+Value: private de-identified retrospective arm n=3564; private prospective silent-mode arm n=921; UROMOL E-MTAB-4321; GEO GSE13507; GEO GSE32894; CystoDS; EBT Zenodo 7741476; TCGA-BLCA auxiliary; Pan-Cancer-Nuclei-Seg auxiliary.
+Location: Methods 3.1, Data availability.
+Confidence: HIGH.
+
+7. compute_target
+Value: 4x NVIDIA A100 80GB, peak training memory 38GB, 72h full five-fold/five-seed pipeline, fp16 batch 32.
+Location: Figure 1, Methods 3.2, Table 13, Figure 7.
+Confidence: HIGH.
+
+8. hparams_reference
+Value: lr 5e-5, batch size 32, lambda_reconstruction 0.1, conformal target 0.90, five folds, seeds 42/123/7777/11/999, fp16, PyTorch 2.4 CUDA 12.4.
+Location: Table 12, Table 13, Figure 7.
+Confidence: MEDIUM for omitted optimizer and epoch count.
+
+9. extra_signals
+Value: learnable pair masks, missing-modality mask suppression, recurrence and progression heads, TGBRD constrained least-squares, group-conditional conformal calibration, isotonic calibration, bootstrap 1000 intervals, DeLong paired testing, Holm-Bonferroni correction.
+Location: Methods 3.2-3.5, Algorithms 1-2, Equation 1.
+Confidence: HIGH.

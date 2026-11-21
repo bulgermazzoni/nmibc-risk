@@ -1,0 +1,1 @@
+No unresolved scientific deviations are encoded in the default feature-level implementation. Foundation backbones are represented as feature adapters at release time so sites can connect locally licensed encoder checkpoints without exposing private weights.
